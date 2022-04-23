@@ -1,0 +1,176 @@
+<html>
+
+<head>
+
+    <head>
+        <title>myExam</title>
+        <style>
+            body {
+                margin: 0%;
+                padding-top: 0px;
+                padding-left: none;
+                background-image: url('pg5.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                font-size: 100px;
+                color: orange;
+                text-align: center;
+
+            }
+
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
+                -moz-font-smoothing: antialiased;
+                -o-font-smoothing: antialiased;
+                text-rendering: optimizeLegibility;
+            }
+
+            .container {
+                max-width: 400px;
+                width: 100%;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            #location input[type="text"],
+            #location button[type="submit"] {
+                font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+            }
+
+            #location {
+                background: #F9F9F9;
+                padding: 25px;
+                margin: 150px 0;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            }
+
+            #location h6 {
+                display: block;
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            fieldset {
+                border: medium none !important;
+                margin: 0 0 10px;
+                min-width: 100%;
+                padding: 0;
+                width: 100%;
+            }
+
+            #location input[type="text"],
+            #location input[type="email"],
+            #location input[type="tel"],
+            #location input[type="url"],
+            #location textarea {
+                width: 100%;
+                border: 1px solid #ccc;
+                background: #FFF;
+                margin: 0 0 5px;
+                padding: 10px;
+            }
+
+            #location input[type="text"]:hover,
+            #location input[type="email"]:hover,
+            #location input[type="tel"]:hover,
+            #location input[type="url"]:hover,
+            #location textarea:hover {
+                -webkit-transition: border-color 0.3s ease-in-out;
+                -moz-transition: border-color 0.3s ease-in-out;
+                transition: border-color 0.3s ease-in-out;
+                border: 1px solid #aaa;
+            }
+
+            #location textarea {
+                height: 100px;
+                max-width: 100%;
+                resize: none;
+            }
+
+            #location button[type="submit"] {
+                cursor: pointer;
+                width: 100%;
+                border: none;
+                background: #4CAF50;
+                color: #FFF;
+                margin: 0 0 5px;
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            #location button[type="submit"]:hover {
+                background: #43A047;
+                -webkit-transition: background 0.3s ease-in-out;
+                -moz-transition: background 0.3s ease-in-out;
+                transition: background-color 0.3s ease-in-out;
+            }
+
+            #location button[type="submit"]:active {
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+            }
+
+            #location input:focus,
+            #location textarea:focus {
+                outline: 0;
+                border: 1px solid #aaa;
+            }
+
+            ::-webkit-input-placeholder {
+                color: #888;
+            }
+
+            :-moz-placeholder {
+                color: #888;
+            }
+
+            ::-moz-placeholder {
+                color: #888;
+            }
+
+            :-ms-input-placeholder {
+                color: #888;
+            }
+        </style>
+    </head>
+
+<body>
+    <!--<tr>
+        <td>Course</td>
+        <td ><select name="Course" id="cou">
+        <option value="-1" selected>select..</option>
+        <option value="B.Tech">B.TECH</option>
+        <option value="MCA">MCA</option>
+        <option value="MBA">MBA</option>
+        <option value="BCA">BCA</option>
+        </select></td>
+        </tr>
+    !-->
+    <div class="container">
+        <form id="location" action="types.html" method="post">
+            <h6>Location Search Form</h6>
+            <fieldset>
+                <select name="place" id="place" required >
+                  <option value="stillwater-oklahoma">Stillwater, Oklahoma</option>
+                  <option value="tulsa-oklahoma">Tulsa, Oklahoma</option>
+                  <option value="irving-texas">Irving, Texas</option>
+                  
+                  <option value="houston-texas">Houston, Texas</option>
+                  
+                  <option value="dallas-texas">Dallas, Texas</option>
+                  <option value="austin-texas">Austin, Texas</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <button name="submit" type="submit" id="location-submit" data-submit="...Sending">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

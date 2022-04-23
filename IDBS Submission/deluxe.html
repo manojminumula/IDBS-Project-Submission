@@ -1,0 +1,104 @@
+<html>
+
+<head>
+
+    <head>
+        <title>Deluxe</title>
+        <style>
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                margin: 30px auto;
+                width: 300px;
+                height: 300px;
+                border-radius: 40px;
+                box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+            .card .card_image {
+                width: inherit;
+                height: inherit;
+                border-radius: 40px;
+            }
+
+            .card .card_image img {
+                width: inherit;
+                height: inherit;
+                border-radius: 40px;
+                object-fit: cover;
+            }
+
+            .card .card_title {
+                text-align: center;
+                border-radius: 0px 0px 40px 40px;
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 30px;
+                margin-top: -80px;
+                height: 40px;
+            }
+
+            .card:hover {
+                transform: scale(0.9, 0.9);
+                box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+                    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+            }
+
+            .title-white {
+                color: white;
+            }
+
+            .title-black {
+                color: black;
+            }
+
+            @media all and (max-width: 500px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+            }
+
+            body {
+                background-image: url('wall.jpg');
+                background-repeat: no-repeat;
+                object-fit: cover;
+            }
+
+            h1 {
+                color: aliceblue;
+            }
+            button {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+<body>
+    <h1>Deluxe Rooms</h1>
+    
+    <form action="deluxe_php.php" method="post" name="deluxerooms" id="subform">
+
+    <form id="deluxe" action="types.html" method="post">
+      <h2><label>Cost of room in $</label> <input type="text" name="price" disabled value="600" ></h2>
+      <label>Select from Date</label> <input type="date" name="fdate">
+        <label>Select to Date</label> <input type="date" name="tdate">
+
+    <input type="submit" name="butbook" value="Book" style="width: 100px;"/>
+      
+      <input type="submit" name="updbook" value="Update" style="width: 100px;"/> 
+    
+      <input type="submit" name="delbook" value="Delete" style="width: 100px;"/> 
+       
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,462 @@
+<html>
+
+<head>
+    <title>Online Paying guest Accommodation</title>
+    <style>
+        div {
+            padding-top: 10px;
+            color: white;
+            background-color: rgba(0, 51, 102, 0.9);
+            height: 45px;
+            font-size: 25px;
+            font-family: Courier New;
+        }
+
+
+
+        ul {
+            list-style-type: none;
+            text-align: justify;
+            text-decoration: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            display: inline;
+            padding: 80px;
+            font-style: bold;
+        }
+
+        li a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        body {
+            margin: 0%;
+            padding-top: 0px;
+            padding-left: none;
+            overflow-y: hidden;
+            font-size: 100px;
+            color: orange;
+            text-align: center;
+
+        }
+
+        .inner-title {
+            background-color: rgb(198, 175, 175);
+            color: black;
+            font-weight: bold;
+        }
+
+
+
+        .slider {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slider-content {
+            position: relative;
+            width: 100%;
+        }
+        .slider-content-wrapper {
+            display: flex;
+            height: 500px;
+            transition: transform 0.5s ease-in-out;
+
+        }
+
+        .slider-content__item {
+            flex: 1 0 100%;
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            font-size: 100px;
+            color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-1 {
+            background-image: url('./Pg1.jpg');
+        }
+
+        .image-2 {
+            background-image: url('./Pg2.webp');
+        }
+
+        .image-3 {
+            background-image: url('./Pg3.webp');
+        }
+
+        .image-4 {
+            background-image: url('./Pg4.webp');
+        }
+
+
+        .slider-controls {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .slider-content__controls {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .prev-arrow,
+        .next-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.3);
+            width: 20px;
+            transition: all 0.3s;
+        }
+
+        .prev-arrow {
+            left: 20px;
+        }
+
+        .next-arrow {
+            right: 20px;
+        }
+
+        .prev-arrow:hover,
+        .next-arrow:hover {
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        .dots {
+            position: absolute;
+            display: flex;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10%;
+        }
+
+        .dot {
+            cursor: pointer;
+            width: 8px;
+            height: 8px;
+            margin-right: 4px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .dot:last-child {
+            margin-right: 0;
+        }
+
+        .dot:hover {
+            background-color: #fff;
+        }
+
+        .dot--active {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+        button {
+            cursor: pointer;
+            margin-right: 8px;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #3066BE;
+            color: #FFF;
+            transition: all 0.5s;
+        }
+
+        button:last-child {
+            margin-right: 0;
+        }
+
+        button:hover {
+            background-color: #60AFFF;
+        }
+
+        button:focus {
+            outline: none;
+        }
+        .disabled {
+            background-color: #DCCFCF;
+            color: #B0A8A8;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .centered {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="inner-title">
+        Online Paying Guest Accomodation System
+
+    </div>
+
+    <div>
+        <ul>
+            <li><span style="color:#66ff33 ;font-family:Courier New;font-size:31px"></span></li>
+            <li><a href="index.html"><b>Home</b></a></li>
+            <li><a href="signup.html"><b>Signup</b></a></li>
+            <li><a href="login.html"><b>Login</b></a></li>
+            <li><a href="about.html"><b>About</b></a></li>
+
+        </ul>
+    </div>
+    <div id="slider" class="slider">
+        <div class="slider-content">
+            <div class="slider-content-wrapper">
+                <div class="slider-content__item image-1">1</div>
+                <div class="slider-content__item image-2">2</div>
+                <div class="slider-content__item image-3">3</div>
+                <div class="slider-content__item image-4">4</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const slider = (function () {
+
+        const slider = document.getElementById("slider");
+        console.log(slider);
+        const sliderContent = document.querySelector(".slider-content");
+        console.log(sliderContent);
+        const sliderWrapper = document.querySelector(".slider-content-wrapper");
+        const elements = document.querySelectorAll(".slider-content__item"); 
+        const sliderContentControls = createHTMLElement("div", "slider-content__controls"); 
+        let dotsWrapper = null; 
+        let prevButton = null; 
+        let nextButton = null;
+        let autoButton = null;
+        let leftArrow = null; 
+        let rightArrow = null;
+        let intervalId = null; 
+
+        const itemsInfo = {
+            offset: 0, 
+            position: {
+                current: 0,
+                min: 0, 
+                max: elements.length - 1
+            },
+            intervalSpeed: 2000,
+
+            update: function (value) {
+                this.position.current = value;
+                this.offset = -value;
+            },
+            reset: function () {
+                this.position.current = 0;
+                this.offset = 0;
+            }
+        };
+
+        const controlsInfo = {
+            buttonsEnabled: false,
+            dotsEnabled: false,
+            prevButtonDisabled: true,
+            nextButtonDisabled: false
+        };
+
+        function init(props) {
+            let { intervalSpeed, position, offset } = itemsInfo;
+
+            if (slider && sliderContent && sliderWrapper && elements) {
+                if (props && props.intervalSpeed) {
+                    intervalSpeed = props.intervalSpeed;
+                }
+                if (props && props.currentItem) {
+                    if (parseInt(props.currentItem) >= position.min && parseInt(props.currentItem) <= position.max) {
+                        position.current = props.currentItem;
+                        offset = - props.currentItem;
+                    }
+                }
+                if (props && props.buttons) {
+                    controlsInfo.buttonsEnabled = true;
+                }
+                if (props && props.dots) {
+                    controlsInfo.dotsEnabled = true;
+                }
+
+                _updateControlsInfo();
+                _createControls(controlsInfo.dotsEnabled, controlsInfo.buttonsEnabled);
+                _render();
+            } else {
+                console.log("err");
+            }
+        }
+        function _updateControlsInfo() {
+            const { current, min, max } = itemsInfo.position;
+            controlsInfo.prevButtonDisabled = current > min ? false : true;
+            controlsInfo.nextButtonDisabled = current < max ? false : true;
+        }
+
+        function _createControls(dots = false, buttons = false) {
+
+            sliderContent.append(sliderContentControls);
+
+            createArrows();
+            buttons ? createButtons() : null;
+            dots ? createDots() : null;
+
+            function createArrows() {
+                const dValueLeftArrow = "M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z";
+                const dValueRightArrow = "M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z";
+                const leftArrowSVG = createSVG(dValueLeftArrow);
+                const rightArrowSVG = createSVG(dValueRightArrow);
+
+                leftArrow = createHTMLElement("div", "prev-arrow");
+                leftArrow.append(leftArrowSVG);
+                leftArrow.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current - 1))
+
+                rightArrow = createHTMLElement("div", "next-arrow");
+                rightArrow.append(rightArrowSVG);
+                rightArrow.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current + 1))
+
+                sliderContentControls.append(leftArrow, rightArrow);
+
+                function createSVG(dValue, color = "currentColor") {
+                    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                    svg.setAttribute("viewBox", "0 0 256 512");
+                    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    path.setAttribute("fill", color);
+                    path.setAttribute("d", dValue);
+                    svg.appendChild(path);
+                    return svg;
+                }
+            }
+
+            function createDots() {
+                dotsWrapper = createHTMLElement("div", "dots");
+                for (let i = 0; i < itemsInfo.position.max + 1; i++) {
+                    const dot = document.createElement("div");
+                    dot.className = "dot";
+                    dot.addEventListener("click", function () {
+                        updateItemsInfo(i);
+                    })
+                    dotsWrapper.append(dot);
+                }
+                sliderContentControls.append(dotsWrapper);
+            }
+
+            function createButtons() {
+                const controlsWrapper = createHTMLElement("div", "slider-controls");
+                prevButton = createHTMLElement("button", "prev-control", "Prev");
+                prevButton.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current - 1))
+
+                autoButton = createHTMLElement("button", "auto-control", "Auto");
+                autoButton.addEventListener("click", () => {
+                    intervalId = setInterval(function () {
+                        if (itemsInfo.position.current < itemsInfo.position.max) {
+                            itemsInfo.update(itemsInfo.position.current + 1);
+                        } else {
+                            itemsInfo.reset();
+                        }
+                        _slideItem();
+                    }, itemsInfo.intervalSpeed)
+                })
+
+                nextButton = createHTMLElement("button", "next-control", "Next");
+                nextButton.addEventListener("click", () => updateItemsInfo(itemsInfo.position.current + 1))
+
+                controlsWrapper.append(prevButton, autoButton, nextButton);
+                slider.append(controlsWrapper);
+            }
+        }
+        function setClass(options) {
+            if (options) {
+                options.forEach(({ element, className, disabled }) => {
+                    if (element) {
+                        disabled ? element.classList.add(className) : element.classList.remove(className)
+                    } else {
+                        console.log("Error: function setClass(): element = ", element);
+                    }
+                })
+            }
+        }
+        function updateItemsInfo(value) {
+            itemsInfo.update(value);
+            _slideItem(true);
+        }
+
+        function _render() {
+            const { prevButtonDisabled, nextButtonDisabled } = controlsInfo;
+            let controlsArray = [
+                { element: leftArrow, className: "d-none", disabled: prevButtonDisabled },
+                { element: rightArrow, className: "d-none", disabled: nextButtonDisabled }
+            ];
+            if (controlsInfo.buttonsEnabled) {
+                controlsArray = [
+                    ...controlsArray,
+                    { element: prevButton, className: "disabled", disabled: prevButtonDisabled },
+                    { element: nextButton, className: "disabled", disabled: nextButtonDisabled }
+                ];
+            }
+            setClass(controlsArray);
+            sliderWrapper.style.transform = `translateX(${itemsInfo.offset * 100}%)`;
+
+            if (controlsInfo.dotsEnabled) {
+                if (document.querySelector(".dot--active")) {
+                    document.querySelector(".dot--active").classList.remove("dot--active");
+                }
+                dotsWrapper.children[itemsInfo.position.current].classList.add("dot--active");
+            }
+        }
+        function _slideItem(autoMode = false) {
+            if (autoMode && intervalId) {
+                clearInterval(intervalId);
+            }
+            _updateControlsInfo();
+            _render();
+        }
+
+        function createHTMLElement(tagName = "div", className, innerHTML) {
+            const element = document.createElement(tagName);
+            className ? element.className = className : null;
+            innerHTML ? element.innerHTML = innerHTML : null;
+            return element;
+        }
+        return { init };
+    }())
+
+    slider.init({
+        currentItem: 0,
+        buttons: true,
+        dots: true
+    });
+</script>
+
+
+
+</html>

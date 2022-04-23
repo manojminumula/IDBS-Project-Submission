@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+    <head>
+        <title>Admin</title>
+        <style>
+            .cards-list {
+                z-index: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                margin: 30px auto;
+                width: 300px;
+                height: 300px;
+                border-radius: 40px;
+                box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25), -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+                cursor: pointer;
+                transition: 0.4s;
+            }
+
+            .card .card_image {
+                width: inherit;
+                height: inherit;
+                border-radius: 40px;
+            }
+
+            .card .card_image img {
+                width: inherit;
+                height: inherit;
+                border-radius: 40px;
+                object-fit: cover;
+            }
+
+            .card .card_title {
+                text-align: center;
+                border-radius: 0px 0px 40px 40px;
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 30px;
+                margin-top: -80px;
+                height: 40px;
+            }
+
+            .card:hover {
+                transform: scale(0.9, 0.9);
+                box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+                    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+            }
+
+            .title-white {
+                color: white;
+            }
+
+            .title-black {
+                color: black;
+            }
+
+            @media all and (max-width: 500px) {
+                .card-list {
+                    /* On small screens, we are no longer using row direction but column */
+                    flex-direction: column;
+                }
+            }
+
+            body {
+                background-image: url('wall.jpg');
+                background-repeat: no-repeat;
+                object-fit: cover;
+            }
+
+            h1 {
+                color: aliceblue;
+            }
+            button {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+<body>
+    <h1>Admin Reports</h1>
+    
+    <form action="admin_php.php" method="post" name="admin_reports" id="subform">
+
+      <h2><label>Admin Updates & Reports </label></h2>
+      <label>Select from Date</label> <input type="date" name="fdate">
+        <label>Select to Date</label> <input type="date" name="tdate"> 
+
+    <input type="submit" name="Updaterevenue" value="Update_revenue" style="width: 120px;"/>
+      
+      <input type="submit" name="report" value="report" style="width: 100px;"/> 
+
+      <input type="submit" name="join" value="customer_details" style="width: 130px;"/> 
+
+      <input type="submit" name="orderby" value="Renewal_details" style="width: 130px;"/>
+        
+      <input type="submit" name="having" value="pg_details" style="width: 130px;"/>
+    
+      
+      <input type="submit" name="Search" value="Search" style="width: 130px;"/>
+       
+    </form>
+</body>
+
+</html>
